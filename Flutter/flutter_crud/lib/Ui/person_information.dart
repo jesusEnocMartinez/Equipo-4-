@@ -24,8 +24,8 @@ class _PersonInformationState extends State<PersonInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Persons Information'),
-        backgroundColor: Colors.green,
+        title: Text('CRUD PERSONAS'),
+        backgroundColor: Colors.deepPurple[200],
       ),
           body: Container(
             height: 400.0,

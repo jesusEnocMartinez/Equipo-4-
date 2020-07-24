@@ -28,14 +28,13 @@ class _PersonScreenState extends State<PersonScreen> {
     _directionController = new TextEditingController(text: widget.person.name);
     _ageController= new TextEditingController(text: widget.person.name);
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text('Personas'),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.deepPurple[200],
       ),
       body: Container(
         height: 570.0,
@@ -47,9 +46,9 @@ class _PersonScreenState extends State<PersonScreen> {
                 TextField(
                   controller: _nameController,
                   style:
-                  TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.person), labelText: 'Nombre:'),
+                      icon: Icon(Icons.person), labelText: 'Nombre'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -58,9 +57,9 @@ class _PersonScreenState extends State<PersonScreen> {
                 TextField(
                   controller: _lasNameController,
                   style:
-                  TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.person), labelText: 'Apellidos:'),
+                      icon: Icon(Icons.border_color), labelText: 'Apellidos'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -69,9 +68,9 @@ class _PersonScreenState extends State<PersonScreen> {
                 TextField(
                   controller: _directionController,
                   style:
-                  TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.list), labelText: 'Dirección:'),
+                      icon: Icon(Icons.list), labelText: 'Domicilio'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -80,9 +79,9 @@ class _PersonScreenState extends State<PersonScreen> {
                 TextField(
                   controller: _ageController,
                   style:
-                  TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.monetization_on), labelText: 'Edad:'),
+                      icon: Icon(Icons.stop), labelText: 'Edad'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 1.0),
@@ -91,7 +90,7 @@ class _PersonScreenState extends State<PersonScreen> {
                 FlatButton(
                     onPressed: () {
                       if (widget.person.id != null) {
-                        personReference.child(widget.person.id).set({
+                        productReference.child(widget.person.id).set({
                           'name': _nameController.text,
                           'lastName': _lasNameController.text,
                           'direction': _directionController.text,
@@ -100,11 +99,11 @@ class _PersonScreenState extends State<PersonScreen> {
                           Navigator.pop(context);
                         });
                       } else {
-                        personReference.push().set({
+                        productReference.push().set({
                           'name': _nameController.text,
-                      'lastName': _lasNameController.text,
-                      'direction': _directionController.text,
-                      'age': _ageController.text,
+                          'lastName': _lasNameController.text,
+                          'direction': _directionController.text,
+                          'age': _ageController.text,
                         }).then((_) {
                           Navigator.pop(context);
                         });
@@ -112,7 +111,7 @@ class _PersonScreenState extends State<PersonScreen> {
                     },
                     child: (widget.person.id != null)
                         ? Text('Actualizar')
-                        : Text('Agregar')),
+                        : Text('Añadir')),
               ],
             ),
           ),
