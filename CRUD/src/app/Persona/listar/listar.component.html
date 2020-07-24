@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <div class="card.header">
+          <h3>Personas</h3>
+        </div> 
+        <div class="card-body">
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th>Clave</th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let persona of personas" class="text-center">
+                        <td>{{persona.clave}}</td>
+                        <td>{{persona.nombre}}</td>
+                        <td>{{persona.direccion}}</td>
+                        <td>{{persona.telefono}}</td>
+                        <td>
+                            <button  (click)="Editar(persona)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(persona)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+</div>
